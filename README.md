@@ -1,1 +1,4 @@
-# Demarque_LimHounTchen_PDOExo3
+Classe principale : TdLoc.php  
+
+Demarque Amaury  
+Lim Houn Tchen Aimé
