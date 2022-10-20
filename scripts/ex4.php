@@ -1,5 +1,5 @@
 <?php
-	header('Location: ../tdloc.php');
+	header('Location: ../src/index.php?action=liste-agences');
 	session_start();
 	use src\Factory\ConnectionFactory as Connection;
 	Connection::setConfig();
@@ -13,6 +13,6 @@
 		$res = $res . $data['A.code_ag']."<br>\n";
 	}
 
-	$_SESSION['req'] = $res;
+	$_SESSION['res'] = $res;
 
 ?>

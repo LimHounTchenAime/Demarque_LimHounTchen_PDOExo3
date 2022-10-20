@@ -1,5 +1,5 @@
 <?php
-	header('Location: ../tdloc.php');
+	header('Location: ../src/index.php?action=location');
 	session_start();
 	use src\Factory\ConnectionFactory as Connection;
 	Connection::setConfig();
@@ -14,5 +14,5 @@
 		$res = $res . $data['montant'] . ' € <br>'."\n";
 	}
 
-	$_SESSION['req'] = $res;
+	$_SESSION['res'] = $res;
 ?>

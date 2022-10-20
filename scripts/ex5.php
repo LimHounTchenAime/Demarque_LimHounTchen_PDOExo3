@@ -1,5 +1,5 @@
 <?php
-	header('Location: ../tdloc.php');
+	header('Location: ../src/index.php?action=liste-clients');
 	session_start();
 	use src\Factory\ConnectionFactory as Connection;
 	Connection::setConfig();
@@ -13,5 +13,5 @@
 		$res = $res . $data['nom'] . '	' . $data['ville']. '	' . $data['codpostal']. "<br>\n";
 	}
 
-	$_SESSION['req'] = $res;
+	$_SESSION['res'] = $res;
 ?>

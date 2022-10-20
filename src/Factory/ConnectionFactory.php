@@ -1,5 +1,5 @@
 <?php
-	namespace Factory;
+	namespace src\Factory;
 	use PDO;
 	class ConnectionFactory
 	{
@@ -11,8 +11,8 @@
 
 		static function connexion(){
 			$dsn=self::$conn['driver'].':host='.self::$conn['host'].'; dbname='.self::$conn['database'];
-
-			return new PDO($dsn,self::$conn['username'],self::$conn['password']);
+			$pdo = new PDO($dsn,self::$conn['username'],self::$conn['password']);
+			return $pdo;
 
 		}
 

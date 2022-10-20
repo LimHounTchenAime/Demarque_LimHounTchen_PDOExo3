@@ -1,21 +1,18 @@
 <?php
-	header('Location: ../tdloc.php');
-	session_start();
+	header('Location: ../src/index.php?action=liste-vehicules');
+	include('../src/Factory/ConnectionFactory.php');
 	use src\Factory\ConnectionFactory as Connection;
 	Connection::setConfig();
 	$bdd = Connection::connexion();
-
-	$res = "";
-
 	$q = $bdd->prepare('Select no_imm, modele From Vehicule Where code_categ = ? and date_achat between ? and ?');
-	$q->bindParam(1, $_POST['categ']);
-	$q->bindParam(2, $_POST['date1']);
-	$q->bindParam(3, $_POST['date2']);
+	$q->bindParam(1, $_POST['categorie']);
+	$q->bindParam(2, $_POST['dateD']);
+	$q->bindParam(3, $_POST['dateF']);
 	$q->execute();
-
+	$res = '';
 	while($data=$q->fetch()){
 		$res = $res . $data['no_imm']. '	' . $data['modele'].'<br>'."\n";
 	}
 
-	$_SESSION['req'] = $res;
+	$_SESSION['res'] = $res;
 ?>
